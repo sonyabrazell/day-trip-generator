@@ -32,8 +32,8 @@ def opening_message():
     print("Hey friend! Let's generate your daytrip!")
     print("The trip we have planned for you is:")
 
-opening_message()
 
+opening_message()
 
 print("Where you'll be going: ")
 
@@ -51,28 +51,27 @@ print("How you'll be moving: ")
 
 final_transportation(0,3)
 
-user_confirmation = input("Are you happy with your daytrip? Y or N ")
-    if user_confirmation.upper == 'y':
+user_confirmation = input("Press 1 if you are happy with your trip as is. Press 2 if you would like to change it. ")
+if user_confirmation == '1':
     print('Perfect! Have the best trip!')
-    elif user_confirmation.upper == 'n':
-    user_change = input('Which option would you like to change? 1. Destination 2. Entertainment 3. Restaurant 4. Transportation')
+elif user_confirmation == '2':
+    user_option = input('Press 1 to change entire trip. Press 2 to choose which option to change. ')
+    if user_option == '1':
+        print("Where you'll be going: ")
+        final_destination(0,3)
+        print("What you'll be doing: ")
+        final_entertainment(0,3)
+        print("What you'll be eating: ")
+        final_restaurant(0,3)
+        print("How you'll be moving: ")
+        final_transportation(0,3)
+    if user_option == '2':
+        user_change = input('Which option would you like to change? 1. Destination 2. Entertainment 3. Restaurant 4. Transportation ')
         if user_change == '1':
-            print(final_destination(0,3))
+            final_destination(0,3)
         elif user_change == '2':
-            print(final_entertainment(0,3))
+            final_entertainment(0,3)
         elif user_change == '3':
-            print(final_restaurant(0,3))
+            final_restaurant(0,3)
         elif user_change == '4':
-            print(final_transportation(0,3))
-
-# This is where all of your code lives
-
-
-# """
-# 1. Create lists with all of the options for your trip (destinations, entertainment, restaurants, transportation)
-# 2. Randomly select an option from each
-# 3. Display those options to the user
-# 4. Ask the user if they are satisfied with the trip
-# 5. If yes, then print the trip again as the confirmed trip
-# 6. If no, generate a new set of trip features, and start over
-# """
+            final_transportation(0,3)
